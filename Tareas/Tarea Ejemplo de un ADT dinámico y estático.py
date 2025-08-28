@@ -10,13 +10,14 @@ class Automovil:
         color (str): El color del automóvil.
     """
 
-    def __init__(self, marca, modelo, color):
+    def __init__(self, marca=None, modelo=None, color=None):
         """
         Constructor de la clase Automovil.
         """
         self.__marca = marca
         self.__modelo = modelo
         self.__color = color
+        self.__pasajeros = []
 
     # -----------------------
     # Propiedad: marca
@@ -87,3 +88,101 @@ class Automovil:
         """
         self.__color = valor
 
+    # -----------------------
+    # Modelo ADT estático: Pasajeros
+    # -----------------------
+    def agregar_pasajero(self, nombre):
+        """
+        Agrega un pasajero si no se ha alcanzado el máximo de 4.
+
+        Args:
+            nombre (str): Nombre del pasajero.
+
+        Returns:
+            bool: True si se agregó, False si ya hay 4 pasajeros.
+        """
+        if len(self.__pasajeros) < 4:
+            self.__pasajeros.append(nombre)
+            return True
+        return False
+
+    def quitar_pasajero(self, nombre):
+        """
+        Quita un pasajero por nombre.
+
+        Args:
+            nombre (str): Nombre del pasajero a quitar.
+
+        Returns:
+            bool: True si se quitó, False si no estaba.
+        """
+        if nombre in self.__pasajeros:
+            self.__pasajeros.remove(nombre)
+            return True
+        return False
+
+    @property
+    def pasajeros(self):
+        """
+        Devuelve la lista de pasajeros.
+
+        Returns:
+            list: Lista de nombres de pasajeros.
+        """
+        return self.__pasajeros.copy()
+
+    # -----------------------
+    # Método para representar el auto en texto
+    # -----------------------
+    def __str__(self):
+        return f"{self.marca} {self.modelo}"
+
+
+# -----------------------
+# Modelo ADT dinámico: Fila de autos
+# -----------------------
+class fila_de_autos:
+    def __init__(self):
+        self.autos = []
+    
+    def agregar_auto(self, auto):
+        self.autos.append(auto)
+    
+    def sacar_auto(self, auto):
+        if auto in self.autos:
+            self.autos.remove(auto)
+
+    @property
+    def lista_de_autos(self):
+        # Devuelve solo el nombre (marca y modelo) de cada auto
+        return [str(auto) for auto in self.autos]
+
+
+# Ejemplo de uso de ADT estático
+auto_1 = Automovil("Toyota", "Starlet", "Blanco")
+auto_2 = Automovil("Ford", "Fiesta", "Rojo")
+auto_3 = Automovil("Chevrolet", "Spark", "Azul")
+
+auto_1.agregar_pasajero("Ana")
+auto_1.agregar_pasajero("Luis")
+auto_1.agregar_pasajero("Carlos")
+auto_1.agregar_pasajero("Marta")
+
+print(auto_1.pasajeros)  # ['Ana', 'Luis', 'Carlos', 'Marta']
+
+auto_1.agregar_pasajero("Sofía")  # No se agrega, ya hay 4 pasajeros
+auto_1.quitar_pasajero("Carlos")
+auto_1.agregar_pasajero("Sofía")  # Ahora sí se agrega  
+
+print(auto_1.pasajeros)  # ['Ana', 'Luis', 'Marta', 'Sofía']
+
+# Ejemplo de uso de ADT dinámico    
+fila = fila_de_autos()
+fila.agregar_auto(auto_1)
+fila.agregar_auto(auto_2)
+
+print(fila.lista_de_autos)  # [auto_1, auto_2]
+
+fila.sacar_auto(auto_1)
+
+print(fila.lista_de_autos)  # [auto_2]
