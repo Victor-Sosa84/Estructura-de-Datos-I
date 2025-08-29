@@ -17,7 +17,7 @@ class Automovil:
         self.__marca = marca
         self.__modelo = modelo
         self.__color = color
-        self.__pasajeros = []
+        self.__pasajeros = [None] * 4  # Espacio fijo para 4 pasajeros
 
     # -----------------------
     # Propiedad: marca
@@ -93,18 +93,19 @@ class Automovil:
     # -----------------------
     def agregar_pasajero(self, nombre):
         """
-        Agrega un pasajero si no se ha alcanzado el máximo de 4.
+        Agrega un pasajero en la primera posición vacía.
 
         Args:
             nombre (str): Nombre del pasajero.
 
         Returns:
-            bool: True si se agregó, False si ya hay 4 pasajeros.
+            bool: True si se agregó, False si ya está lleno.
         """
-        if len(self.__pasajeros) < 4:
-            self.__pasajeros.append(nombre)
-            return True
-        return False
+        for i in range(4):
+            if self.__pasajeros[i] is None:
+                self.__pasajeros[i] = nombre
+                return True
+        return False  # No hay espacio
 
     def quitar_pasajero(self, nombre):
         """
@@ -116,9 +117,10 @@ class Automovil:
         Returns:
             bool: True si se quitó, False si no estaba.
         """
-        if nombre in self.__pasajeros:
-            self.__pasajeros.remove(nombre)
-            return True
+        for i in range(4):
+            if self.__pasajeros[i] == nombre:
+                self.__pasajeros[i] = None
+                return True
         return False
 
     @property
@@ -129,7 +131,7 @@ class Automovil:
         Returns:
             list: Lista de nombres de pasajeros.
         """
-        return self.__pasajeros.copy()
+        return [p for p in self.__pasajeros if p is not None]
 
     # -----------------------
     # Método para representar el auto en texto
@@ -158,13 +160,18 @@ class fila_de_autos:
         return [str(auto) for auto in self.autos]
 
 
-# Ejemplo de uso de ADT estático
+# Ejemplo de uso
+# Inicializar automóviles
 auto_1 = Automovil("Toyota", "Starlet", "Blanco")
 auto_2 = Automovil("Ford", "Fiesta", "Rojo")
 auto_3 = Automovil("Chevrolet", "Spark", "Azul")
 
+# Ejemplo de uso de ADT estático
 auto_1.agregar_pasajero("Ana")
 auto_1.agregar_pasajero("Luis")
+
+print(auto_1.pasajeros)  # ['Ana', 'Luis']
+
 auto_1.agregar_pasajero("Carlos")
 auto_1.agregar_pasajero("Marta")
 
