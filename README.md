@@ -8,7 +8,15 @@ Aquí encontrarás los ejercicios, tareas y proyectos realizados durante la mate
 
 ## Contenido
 
-- [Tareas](tareas/README.md) – Ejercicios y prácticas de la materia.
-- [Proyectos](proyectos/README.md) – Proyectos desarrollados durante la materia.
+- [Tareas](Tareas/README.md) – Ejercicios y prácticas de la materia.
+- [Proyectos](Proyectos/README.md) – Proyectos desarrollados durante la materia.
 
 ---
+
+## Datos:
+
+- **Estudiante:** Victor David Sosa Coca
+- **Registro:** 223044431
+- **Materia:** Estructura de Datos I
+- **Semestre:** 2-2025
+- **Docente:** M.Sc. Juan Carlos Peinado Pereira 
