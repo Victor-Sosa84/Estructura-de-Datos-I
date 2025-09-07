@@ -13,10 +13,15 @@ Aquí encontrarás los ejercicios, tareas y proyectos realizados durante la mate
 
 ---
 
-## Datos:
+## Datos
 
 - **Estudiante:** Victor David Sosa Coca
 - **Registro:** 223044431
 - **Materia:** Estructura de Datos I
+- **Sigla:** INF220
+- **Grupo:** I2
 - **Semestre:** 2-2025
 - **Docente:** M.Sc. Juan Carlos Peinado Pereira 
+- **Carrera:** Ingeniería en Sistemas
+- **Facultad:** Facultad de Ingeniería en Ciencias de la Computación y Telecomunicaciones (FICCT)
+- **Universidad:** Universidad Autónoma Gabriel René Moreno (UAGRM)
