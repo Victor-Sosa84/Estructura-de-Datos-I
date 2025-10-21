@@ -40,6 +40,6 @@ def eliminar_tarea(descripcion):
     return redirect(url_for("menu_principal"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)
 
 
