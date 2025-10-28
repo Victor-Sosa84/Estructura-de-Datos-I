@@ -16,32 +16,32 @@ class Controlador:
         """
         return self._lista.mostrar()
 
-    def agregar_tarea_inicio(self, descripcion):
+    def agregar_tarea(self, descripcion, impacto, fecha):
         """
         Agrega una tarea al inicio de la lista.
+        
+        Parámetros:
+            descripcion(str): Descripción de la tarea.
 
         Returns:
-            (bool): Devuelve True o False si la tarea fue añadida al inicio.
+            (bool): True o False si la tarea fue añadida.
         """
-        return self._lista.agregar_inicio(descripcion)
-
-    def agregar_tarea_final(self, descripcion):
-        """
-        Agrega una tarea al final de la lista.
-
-        Returns:
-            (bool): Devuelve True o False si la tarea fue añadida al final.
-        """
-        return self._lista.agregar_final(descripcion)
+        return self._lista.agregar(descripcion, impacto, fecha)
 
     def completar_tarea(self, descripcion):
         """
         Completa una tarea.
+
+        Parámetros:
+            descripcion(str): Descripción de la tarea.
         """
         self._lista.completar(descripcion)
 
     def eliminar_tarea(self, descripcion):
         """
         Elimina una tarea.
+
+        Parámetros:
+            descripcion(str): Descripción de la tarea.
         """
         self._lista.eliminar(descripcion)

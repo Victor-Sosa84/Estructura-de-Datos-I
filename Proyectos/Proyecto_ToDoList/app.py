@@ -22,17 +22,14 @@ def agregar():
         Redirige a la página principal con la tarea agregada.
     """
     descripcion = request.form["descripcion"]
-    accion = request.form["accion"]
-
-    if accion == "inicio":
-        b = control.agregar_tarea_inicio(descripcion)
-    elif accion == "final":
-        b = control.agregar_tarea_final(descripcion)
+    impacto = request.form.get("impacto", "")
+    fecha = request.form.get("fecha", "")
+    b = control.agregar_tarea(descripcion, impacto, fecha)
 
     if b:
         flash(f"La tarea '{descripcion}' fue agregada!")
     else:
-        flash(f"La tarea '{descripcion}' no fue agregada. Ya existente en la lista.")
+        flash(f"La tarea '{descripcion}' ya existe en la lista.")
 
     return redirect(url_for("menu_principal"))
 
@@ -41,6 +38,9 @@ def completar_tarea(descripcion):
     """
     Ruta para completar una tarea.
     
+    Parámetros:
+        descripcion(str): Descripción de la tarea.
+
     Returns:
         Redirige a la página principal con la tarea completada.
     """
@@ -53,6 +53,9 @@ def eliminar_tarea(descripcion):
     """
     Ruta para eliminar una tarea.
 
+    Parámetros:
+        descripcion(str): Descripción de la tarea.
+
     Returns:
         Redirige a la página principal con la tarea eliminada.
     """
@@ -61,6 +64,7 @@ def eliminar_tarea(descripcion):
     return redirect(url_for("menu_principal"))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    app.run(debug=True)
+    #app.run(host="0.0.0.0", port=10000)
 
 

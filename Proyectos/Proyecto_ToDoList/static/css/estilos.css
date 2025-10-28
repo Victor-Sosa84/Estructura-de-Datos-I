@@ -1,0 +1,70 @@
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    background: linear-gradient(to bottom, #0d4671, #92e1e2);
+}
+
+/* 🎨 Título con degradado sutil */
+.titulo-degradado {
+    background: linear-gradient(90deg, #0d4671, #4ab8ba, #92e1e2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: moverDegradado 20s ease-in-out infinite alternate;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    font-style: italic;
+}
+
+/* Animación del degradado: mucho más lenta y suave */
+@keyframes moverDegradado {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+}
+
+/* Subtítulo */
+.subtitulo {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #caf0f8; /* azul suave */
+    margin-top: -5px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.container {
+    max-width: 1100px;
+    padding-top: 30px;
+}
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg,#0d4671,#4ab8ba);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+#entry {
+    background-color: #ffffffaa;
+    color: #0d4671;
+    border: 2px solid #0d4671;
+    padding: 8px 12px;
+    width: 100%;
+}
+#entry:focus {
+    outline: none;
+    border-color: #92e1e2;
+    background-color: #ffffffcc;
+}
+#entry::placeholder {
+    color: #0d4671;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+
