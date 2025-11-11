@@ -10,6 +10,7 @@ Aquí encontrarás los ejercicios, tareas y proyectos realizados durante la mate
 
 - [Tareas](Tareas/README.md) – Ejercicios y prácticas de la materia.
 - [Proyectos](Proyectos/README.md) – Proyectos desarrollados durante la materia.
+- [Parciales](Parciales/README.md) - Parciales evaluados en la materia.
 
 ---
 
